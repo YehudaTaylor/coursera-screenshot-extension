@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "Screenshot YouTube",
+	"name": "Screenshot Coursera",
 	"version": "2.4.1",
 
-	"description": "Take a screenshot of any YouTube video with one click.",
+	"description": "Take a screenshot of any Coursera video with one click.",
 	"icons": {
 		"16": "icon-16.png",
 		"48": "icon-48.png",
@@ -18,16 +18,17 @@
 	
 	"content_scripts": [
 		{
-			"matches": ["https://www.youtube.com/*"],
+			"matches": ["https://www.coursera.org/*"],
 			"js": ["page.js"],
 			"css": ["style.css"],
-			"run_at": "document_end"
+			"run_at": "document_idle"
 		}
 	],
 
 	"permissions": [
-		"https://www.youtube.com/*",
+		"https://www.coursera.org/*",
 		"webNavigation",
-		"storage"
+		"storage",
+		"activeTab"
 	]
 }

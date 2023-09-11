@@ -13,7 +13,7 @@ function CaptureScreenshot() {
 
 	var title;
 
-	var headerEls = document.querySelectorAll("h1.title.ytd-video-primary-info-renderer");
+	var headerEls = document.querySelectorAll("cds-108.video-name.css-1diqjn6.cds-110");
 
 	function SetTitle() {
 		if (headerEls.length > 0) {
@@ -25,13 +25,13 @@ function CaptureScreenshot() {
 	}
 	
 	if (SetTitle() == false) {
-		headerEls = document.querySelectorAll("h1.watch-title-container");
+		headerEls = document.querySelectorAll("cds-263.video-name.css-1diqjn6.cds-265");
 
 		if (SetTitle() == false)
 			title = '';
 	}
 
-	var player = document.getElementsByClassName("video-stream")[0];
+	var player = document.getElementsByClassName("vjs-tech")[0];
 
 	var time = player.currentTime;
 
@@ -89,9 +89,9 @@ function CaptureScreenshot() {
 }
 
 function AddScreenshotButton() {
-	var ytpRightControls = document.getElementsByClassName("ytp-right-controls")[0];
+	var ytpRightControls = document.getElementsByClassName("cds-1 css-0 cds-2 cds-3 cds-grid-item cds-48")[2];
 	if (ytpRightControls) {
-		ytpRightControls.prepend(screenshotButton);
+		ytpRightControls.appendChild(screenshotButton);
 	}
 
 	chrome.storage.sync.get('playbackSpeedButtons', function(result) {
@@ -130,7 +130,12 @@ screenshotButton.className = "screenshotButton ytp-button";
 screenshotButton.style.width = "auto";
 screenshotButton.innerHTML = "Screenshot";
 screenshotButton.style.cssFloat = "left";
+screenshotButton.style.position = "relative";
+screenshotButton.style.zIndex = "1";
 screenshotButton.onclick = CaptureScreenshot;
+if(screenshotButton) {
+	console.log("Screenshot button created")
+}
 
 var speed1xButton = document.createElement("button");
 speed1xButton.className = "ytp-button SYText";
@@ -235,11 +240,14 @@ document.addEventListener('keydown', function(e) {
 		}
 	}
 
-	if (screenshotKey && e.key === 'p') {
+	if (screenshotKey && e.key === 'M') {
 		CaptureScreenshot();
 		e.preventDefault();
 		return false;
 	}
 });
 
-AddScreenshotButton();
+// AddScreenshotButton();
+
+// Add the "window.onload" event listener
+window.addEventListener('load', AddScreenshotButton);
