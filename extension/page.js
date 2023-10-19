@@ -169,9 +169,9 @@ speed2xButton.onclick = function() {
 
 var speed25xButton = document.createElement("button");
 speed25xButton.className = "ytp-button SYText";
-speed25xButton.innerHTML = "2.5×";
+speed25xButton.innerHTML = "-5";
 speed25xButton.onclick = function() {
-	document.getElementsByTagName('video')[0].playbackRate = 2.5;
+	document.getElementsByTagName('video')[0].currentTime += -5;
 	activePBRButton.classList.remove('SYTactive');
 	this.classList.add('SYTactive');
 	activePBRButton = this;
@@ -179,9 +179,9 @@ speed25xButton.onclick = function() {
 
 var speed3xButton = document.createElement("button");
 speed3xButton.className = "ytp-button SYText";
-speed3xButton.innerHTML = "3×";
+speed3xButton.innerHTML = "+5";
 speed3xButton.onclick = function() {
-	document.getElementsByTagName('video')[0].playbackRate = 3;
+	document.getElementsByTagName('video')[0].currentTime += 5;
 	activePBRButton.classList.remove('SYTactive');
 	this.classList.add('SYTactive');
 	activePBRButton = this;
@@ -251,3 +251,26 @@ document.addEventListener('keydown', function(e) {
 
 // Add the "window.onload" event listener
 window.addEventListener('load', AddScreenshotButton);
+
+//source for the following code: https://chat.openai.com/share/6a590c5d-6047-4d4d-b631-24e3f9817a86
+let codeToRunAfterLoad = null;
+
+// Listen for messages from the background script
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "runCodeAfterLoad") {
+    // Store the code to run in a variable
+    codeToRunAfterLoad = () => {
+      console.log("Running code after page load.");
+      
+      // Example: Change the background color of the page to red
+    //   document.body.style.backgroundColor = "red";
+    };
+
+    // Wait for 10 seconds and then execute the code
+    setTimeout(() => {
+      if (codeToRunAfterLoad) {
+        AddScreenshotButton();
+      }
+    }, 10000);
+  }
+});
