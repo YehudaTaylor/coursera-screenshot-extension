@@ -182,7 +182,8 @@ function CaptureHalfScreenshot() {
 
 
 function AddScreenshotButton() {
-	var ytpRightControls = document.getElementsByClassName("cds-1 css-0 cds-2 cds-3 cds-grid-item cds-48")[2];
+	// var ytpRightControls = document.getElementsByClassName("cds-1 css-0 cds-2 cds-3 cds-grid-item cds-48")[2];
+	var ytpRightControls = document.getElementById("video-item-title-and-save-note");
 	if (ytpRightControls) {
 		ytpRightControls.appendChild(screenshotButton);
 		ytpRightControls.appendChild(screenshotButton1);
@@ -348,7 +349,8 @@ document.addEventListener('keydown', function(e) {
 	}
 
 	if (screenshotKey && e.key === 'M') {
-		CaptureScreenshot();
+		// CaptureScreenshot();
+		CaptureHalfScreenshot();
 		e.preventDefault();
 		return false;
 	}
