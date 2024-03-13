@@ -333,10 +333,10 @@ document.addEventListener('keydown', function(e) {
 				speed15xButton.click();
 				e.preventDefault();
 				return false;
-			case 'w':
-				speed2xButton.click();
-				e.preventDefault();
-				return false;
+			// case 'w':
+			// 	speed2xButton.click();
+			// 	e.preventDefault();
+			// 	return false;
 			case 'e':
 				speed25xButton.click();
 				e.preventDefault();
@@ -351,6 +351,13 @@ document.addEventListener('keydown', function(e) {
 	if (screenshotKey && e.key === 'M') {
 		// CaptureScreenshot();
 		CaptureHalfScreenshot();
+		e.preventDefault();
+		return false;
+	}
+
+	if (screenshotKey && e.key === 'w') {
+		CaptureScreenshot();
+		// CaptureHalfScreenshot();
 		e.preventDefault();
 		return false;
 	}
