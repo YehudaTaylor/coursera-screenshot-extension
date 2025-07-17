@@ -1,18 +1,31 @@
-# [Screenshot YouTube](https://chrome.google.com/webstore/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk) – a Chrome extension
-Take a screenshot of any YouTube video with one click. [Get on Chrome Web Store →](https://chrome.google.com/webstore/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk)
+This project is an extension and customisation of - https://github.com/FutureMillennium/Screenshot-YouTube.
 
-[![Screenshot YouTube – screenshot](_dev/screenshot.jpg)](https://chrome.google.com/webstore/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk)
+## 🧱 Installation (from Source)
 
-This extension does not contain any malicious or tracking code. No viruses. No ads. Only good software.
+Follow these steps to load the extension manually in Chrome:
 
-## Status: finished and functional
+### 1. Clone or Download the Repository
 
-No updates planned at the moment.
+**Option 1: Clone with Git**
 
-## Found an error? Have any issues or feature requests?
+```bash
+git clone https://github.com/your-username/your-extension-repo.git
+```
+Option 2: Download as ZIP
+Click the green Code button on this page.
+Select Download ZIP.
+Extract the ZIP file to a folder.
 
-Please add them in the <em>Issues</em> section.
+### 2. Open Chrome Extension Manager
+Open Chrome and go to: chrome://extensions/
 
-## [Please consider supporting on Patreon!](https://www.patreon.com/FutureMillennium)
+Enable Developer mode (toggle in the top-right corner).
 
-Made by [Zdeněk Gromnica aka FutureMillennium](http://futuremillennium.com/).
+### 3. Load the Extension
+Click on “Load unpacked”
+
+Select the folder you just cloned or extracted (the one containing manifest.json).
+
+### 4. Done 🎉
+The extension should now be installed and active in your browser!
+You can pin it to the toolbar by clicking the 🧩 puzzle icon and selecting your extension.
